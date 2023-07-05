@@ -1,0 +1,23 @@
+[tasks]
+bmc
+cover
+prove
+
+[options]
+bmc: mode bmc
+cover: mode cover
+prove: mode prove
+depth 97
+multiclock off
+
+[engines]
+smtbmc boolector
+
+[script]
+read_ilang empire.il
+prep -top top
+
+[files]
+./tests/empire.il
+./amaranth_testbench/examples/empire.py
+./amaranth_testbench/examples/test_empire.py

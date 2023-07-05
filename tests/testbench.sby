@@ -1,0 +1,23 @@
+[tasks]
+bmc
+cover
+prove 
+
+[options]
+bmc: mode bmc
+cover: mode cover
+prove: mode prove
+depth 50
+multiclock off
+
+[engines]
+smtbmc yices
+# smtbmc boolector
+
+[script]
+read_ilang testbench.il
+prep -top top
+
+[files]
+./tests/testbench.il
+./amaranth_testbench/examples/test_testbench.py

@@ -1,0 +1,27 @@
+[tasks]
+cover 
+coverandnext
+bmc
+prove
+
+[options]
+cover: mode cover
+
+coverandnext: 
+mode cover
+append 1
+--
+
+bmc: mode bmc
+prove: mode prove
+depth 30
+
+[engines]
+smtbmc boolector
+
+[script]
+read_ilang ferryman.il
+prep -top top
+
+[files]
+./tests/ferryman.il

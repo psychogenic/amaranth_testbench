@@ -1,0 +1,41 @@
+[tasks]
+bmc p_depth
+cover 
+lightcover 
+prove p_depth 
+# prove p_depth smtc_prove
+
+[options]
+bmc: mode bmc
+cover: 
+mode cover
+depth 90
+
+--
+
+lightcover: 
+mode cover
+depth 40
+--
+
+p_depth: depth 40
+prove: mode prove
+# smtc_prove:smtc basic.smtc
+
+multiclock off
+
+
+[engines]
+# smtbmc boolector
+smtbmc 
+
+[script]
+read_ilang counter_basic.il
+hierarchy -check -top top
+prep -top top
+
+[files]
+./tests/counter_basic.il
+# ./tests/basic.smtc
+./amaranth_testbench/examples/counter.py
+./amaranth_testbench/examples/test_counter_basic.py

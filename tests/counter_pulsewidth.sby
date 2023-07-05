@@ -1,0 +1,25 @@
+[tasks]
+bmc p_depth
+cover cov_depth
+prove p_depth 
+
+[options]
+bmc: mode bmc
+cover: mode cover
+cov_depth: depth 100
+p_depth: depth 50
+prove: mode prove
+
+multiclock off
+
+
+[engines]
+smtbmc boolector
+
+[script]
+read_ilang counter_pulsewidth.il
+prep -top top
+
+[files]
+./tests/counter_pulsewidth.il
+./amaranth_testbench/examples/counter.py
